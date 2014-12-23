@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="CustomersList" Logo="ExpressAppLogo">
+  <BOModel>
+    <Class Name="CustomersList.Module.BusinessObjects.Customer" ImageName="BO_Customer" />
+  </BOModel>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="14.2.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Validation>
+    <Rules>
+      <RuleRegularExpression Id="@0a9cc4cf-096b-466c-bed9-64f86675f3c8" SkipNullOrEmptyValues="False" TargetContextIDs="Save" TargetType="CustomersList.Module.BusinessObjects.Customer" TargetPropertyName="Email" Pattern="^\S+@\S+\.\S+$" CustomMessageTemplate="Please enter correct email address" IsNewNode="True" />
+    </Rules>
+  </Validation>
+</Application>
