@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Validation>
+    <Rules>
+      <RuleRegularExpression Id="@0a9cc4cf-096b-466c-bed9-64f86675f3c8" Name="Customer.Email Regex" />
+      <RuleRequiredField Id="@f4064b91-86ff-486b-9590-cd7f2c10171a" Name="Address.City required" />
+    </Rules>
+  </Validation>
+</Application>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CustomersList.Module.Resources;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
+using DevExpress.Persistent.Validation;
 
 namespace CustomersList.Module.BusinessObjects
 {
@@ -26,8 +27,10 @@ namespace CustomersList.Module.BusinessObjects
         public int Id { get; set; }
 
         [Required]
+        [RuleRequiredField]
         public string FirstName { get; set; }
         [Required]
+        [RuleRequiredField]
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         [NotMapped]
@@ -35,7 +38,7 @@ namespace CustomersList.Module.BusinessObjects
         {
             get { return string.Format("{0} {1} {2}", LastName, FirstName, MiddleName); }
         }
-
+        
         public DateTime? Birthday { get; set; }
         public string Phone { get; set; }
         [EmailAddress]
@@ -55,9 +58,11 @@ namespace CustomersList.Module.BusinessObjects
         [Required]
         public virtual City City { get; set; }
         [Required]
+        [RuleRequiredField]
         public string Street { get; set; }
         [MaxLength(5)]
         [Required]
+        [RuleRequiredField]
         public string House { get; set; }
         [MaxLength(5)]
         public string Building { get; set; }
@@ -89,6 +94,7 @@ namespace CustomersList.Module.BusinessObjects
         [Browsable(false)]
         public int Id { get; set; }
         [Required]
+        [RuleRequiredField]
         public string Name { get; set; }
     }
 
