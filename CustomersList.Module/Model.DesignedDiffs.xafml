@@ -1,14 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="CustomersList" Logo="ExpressAppLogo">
+<Application Title="CustomersList" Logo="ExpressAppLogo" PreferredLanguage="ru">
   <BOModel>
-    <Class Name="CustomersList.Module.BusinessObjects.Customer" ImageName="BO_Customer" />
+    <Class Name="CustomersList.Module.BusinessObjects.Customer" ImageName="BO_Customer">
+      <OwnMembers>
+        <Member Name="LastName" Index="0" />
+        <Member Name="FirstName" Index="1" />
+        <Member Name="MiddleName" Index="2" />
+        <Member Name="Birthday" EditMaskType="DateTime" />
+      </OwnMembers>
+    </Class>
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Customers" Index="0" />
+      <Item Id="Lists" Index="1">
+        <Items>
+          <Item Id="City_ListView" ImageName="BO_Country_v92" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="14.2.3.0" IsNewNode="True" />
   </SchemaModules>
   <Validation>
     <Rules>
       <RuleRegularExpression Id="@0a9cc4cf-096b-466c-bed9-64f86675f3c8" SkipNullOrEmptyValues="False" TargetContextIDs="Save" TargetType="CustomersList.Module.BusinessObjects.Customer" TargetPropertyName="Email" Pattern="^\S+@\S+\.\S+$" CustomMessageTemplate="Please enter correct email address" IsNewNode="True" />
+      <RuleRequiredField Id="@f4064b91-86ff-486b-9590-cd7f2c10171a" TargetContextIDs="Save" TargetType="CustomersList.Module.BusinessObjects.Address" TargetPropertyName="City" IsNewNode="True" />
     </Rules>
   </Validation>
+  <Views>
+    <DetailView Id="Address_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Address">
+              <LayoutGroup Id="Address_col2">
+                <LayoutItem Id="FullAddress" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Customer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Customer">
+              <LayoutGroup Id="Customer_col1">
+                <LayoutItem Id="FullName" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Customer_ListView">
+      <Columns>
+        <ColumnInfo Id="FirstName" Index="-1" Width="79" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="LastName" Index="-1" Width="374" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="MiddleName" Width="56" Index="-1" />
+        <ColumnInfo Id="FullName" Width="421" SortIndex="0" SortOrder="Ascending" Index="0" />
+        <ColumnInfo Id="Birthday" Width="71" Index="1" />
+        <ColumnInfo Id="Phone" Width="71" Index="2" />
+        <ColumnInfo Id="Email" Width="114" Index="3" />
+        <ColumnInfo Id="Id" Removed="True" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>

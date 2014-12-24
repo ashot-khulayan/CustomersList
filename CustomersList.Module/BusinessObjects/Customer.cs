@@ -61,7 +61,7 @@ namespace CustomersList.Module.BusinessObjects
         public string House { get; set; }
         [MaxLength(5)]
         public string Building { get; set; }
-        public AdddressType? Type { get; set; }
+        public AdddressType Type { get; set; }
 
         [NotMapped]
         public string FullAddress
@@ -82,14 +82,13 @@ namespace CustomersList.Module.BusinessObjects
     }
 
     [Table("Cities")]
-    [NavigationItem("Cities")]
+    [NavigationItem("Lists")]
     public class City
     {
         [Key]
         [Browsable(false)]
         public int Id { get; set; }
         [Required]
-        [Display(Name = "Название")]
         public string Name { get; set; }
     }
 

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel>
+    <Class Name="CustomersList.Module.BusinessObjects.Address" Caption="Адрес">
+      <OwnMembers>
+        <Member Name="Building" Caption="Строение" />
+        <Member Name="City" Caption="Город" />
+        <Member Name="Customer" Caption="Клиент" />
+        <Member Name="FullAddress" Caption="Полный адрес" />
+        <Member Name="House" Caption="Дом" />
+        <Member Name="Street" Caption="Улица" />
+        <Member Name="Type" Caption="Тип адреса" />
+      </OwnMembers>
+    </Class>
+    <Class Name="CustomersList.Module.BusinessObjects.City" Caption="Город">
+      <OwnMembers>
+        <Member Name="Name" Caption="Название" />
+      </OwnMembers>
+    </Class>
+    <Class Name="CustomersList.Module.BusinessObjects.Customer" Caption="Клиент">
+      <OwnMembers>
+        <Member Name="LastName" Caption="Фамилия" />
+        <Member Name="FirstName" Caption="Имя" />
+        <Member Name="MiddleName" Caption="Отчество" />
+        <Member Name="Addresses" Caption="Адреса" />
+        <Member Name="Birthday" Caption="День рождения" DisplayFormat="dd.MM.yyyy" />
+        <Member Name="FullName" Caption="ФИО" />
+        <Member Name="Phone" Caption="Телефон" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Localization>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="CustomersList.Module.BusinessObjects.AdddressType">
+        <LocalizationItem Name="Home" Value="Домашний" />
+        <LocalizationItem Name="Registration" Value="Регистрация" />
+        <LocalizationItem Name="Working" Value="Рабочий" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+  <NavigationItems>
+    <Items>
+      <Item Id="Customers" Caption="Клиенты">
+        <Items>
+          <Item Id="Customer_ListView" Caption="Список клиентов" />
+        </Items>
+      </Item>
+      <Item Id="Lists" Caption="Справочники">
+        <Items>
+          <Item Id="City_ListView" Caption="Города" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Validation>
+    <Rules>
+      <RuleRegularExpression Id="@0a9cc4cf-096b-466c-bed9-64f86675f3c8" CustomMessageTemplate="Введите правильный адрес электронной почты" />
+      <RuleRequiredField Id="@f4064b91-86ff-486b-9590-cd7f2c10171a" CustomMessageTemplate="Укажите город" />
+    </Rules>
+  </Validation>
+  <Views>
+    <DetailView Id="Address_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Address" Caption="Адрес" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Customer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Customer" Caption="Клиент" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
