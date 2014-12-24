@@ -50,6 +50,7 @@ namespace CustomersList.Module.BusinessObjects
     }
     
     [Table("Addresses")]
+    [DefaultProperty("FullAddress")]
     public class Address
     {
         [Key]
@@ -73,6 +74,11 @@ namespace CustomersList.Module.BusinessObjects
         {
             get
             {
+                if (City == null || string.IsNullOrWhiteSpace(Street) || string.IsNullOrWhiteSpace(House))
+                {
+                    return string.Empty;
+                }
+
                 string address = string.Format(Strings.AddressFormat, (City != null ? City.Name : string.Empty), Street, House);
                 if (!string.IsNullOrWhiteSpace(Building))
                 {
@@ -88,6 +94,7 @@ namespace CustomersList.Module.BusinessObjects
 
     [Table("Cities")]
     [NavigationItem("Lists")]
+    [DefaultProperty("Name")]
     public class City
     {
         [Key]
