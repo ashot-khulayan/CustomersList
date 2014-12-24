@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CustomersList.Module.BusinessObjects;
-using CustomersList.Module.Utils;
+﻿using CustomersList.Module.BusinessObjects;
+using CustomersList.Module.Web.Utils;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Web.Editors.ASPx;
 
-namespace CustomersList.Module.Controllers
+namespace CustomersList.Module.Web.Controllers
 {
     public class AddressVC : ObjectViewController<DetailView, Address>
     {
@@ -26,7 +21,7 @@ namespace CustomersList.Module.Controllers
             var lkpCity = View.FindItem("City") as ASPxLookupPropertyEditor;
             if (lkpCity != null)
             {
-                XafUtils.RemoveFirstLookupElement(lkpCity);
+                XafWebUtils.RemoveFirstLookupElement(lkpCity);
             }
         }
     }

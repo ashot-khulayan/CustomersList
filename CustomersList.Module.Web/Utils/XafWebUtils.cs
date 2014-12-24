@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DevExpress.ExpressApp.Web.Editors.ASPx;
+﻿using DevExpress.ExpressApp.Web.Editors.ASPx;
 
-namespace CustomersList.Module.Utils
+namespace CustomersList.Module.Web.Utils
 {
-    public static class XafUtils
+    public static class XafWebUtils
     {
         public static void RemoveFirstLookupElement(ASPxLookupPropertyEditor lookupPropertyEditor)
         {
